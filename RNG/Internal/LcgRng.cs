@@ -1,16 +1,16 @@
 ﻿namespace Gen4RngLib.Rng.Internal
 {
-    internal sealed class Rng : ILcgRng
+    internal sealed class LcgRng : ILcgRng
     {
         public uint Seed { get; set; }
         public void ChangeSeed(uint seed) => Seed = seed;
 
-        public Rng(uint initialSeed)
+        public LcgRng(uint initialSeed)
         {
             Seed = initialSeed;
         }
 
-        public Rng(DateTime dateTime, uint waitFrames)
+        public LcgRng(DateTime dateTime, uint waitFrames)
         {
             Seed = 
                 ((uint)((dateTime.Month * dateTime.Day + dateTime.Minute + dateTime.Second) & 0xff) << 24)

@@ -10,7 +10,7 @@
         /// </summary>
         public static ILcgRng CreateLcgRng(uint initialSeed)
         {
-            return new Internal.Rng(initialSeed);
+            return new Internal.LcgRng(initialSeed);
         }
 
         /// <summary>
@@ -18,7 +18,7 @@
         /// </summary>
         public static ILcgRng CreateLcgRng(DateTime dateTime, uint waitFrames)
         {
-            return new Internal.Rng(dateTime, waitFrames);
+            return new Internal.LcgRng(dateTime, waitFrames);
         }
     }
 }
