@@ -2,7 +2,7 @@
 {
     internal sealed class Rng : ILcgRng
     {
-        public uint Seed { get; private set; }
+        public uint Seed { get; set; }
         public void ChangeSeed(uint seed) => Seed = seed;
 
         public Rng(uint initialSeed)
