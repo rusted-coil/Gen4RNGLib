@@ -74,6 +74,7 @@ namespace Gen4RngLib.Individual
             createdIndividual.SpdIV = (ushort)(ivs & 0b11111);
             createdIndividual.SpAtkIV = (ushort)((ivs >> 5) & 0b11111);
             createdIndividual.SpDefIV = (ushort)((ivs >> 10) & 0b11111);
+            rng.Next(); // 謎消費
         }
     }
 }
