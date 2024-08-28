@@ -14,8 +14,16 @@
         /// 個体が色違いかどうかを取得します。
         /// </summary>
         public static bool IsShiny(this Individual individual, uint tid, uint sid)
-        { 
-            return (tid ^ sid ^ (individual.PID & 0xffff) ^ ((individual.PID >> 16) & 0xffff)) <= 7;
+        {
+            return individual.IsShiny(tid ^ sid);
+        }
+
+        /// <summary>
+        /// 個体が色違いかどうかを取得します。
+        /// </summary>
+        public static bool IsShiny(this Individual individual, uint tsv)
+        {
+            return (tsv ^ (individual.PID & 0xffff) ^ ((individual.PID >> 16) & 0xffff)) <= 7;
         }
     }
 }
