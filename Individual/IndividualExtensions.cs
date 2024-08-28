@@ -5,9 +5,9 @@
         /// <summary>
         /// 個体の性格Indexを取得します。
         /// </summary>
-        public static int GetNature(this Individual individual)
+        public static uint GetNature(this Individual individual)
         {
-            return (int)(individual.PID % 25);
+            return individual.PID % 25;
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace Gen4RngLib.Individual
         /// <param name="gameVersion">ゲームのバージョン</param>
         /// <param name="synchroNature">シンクロの性格。シンクロを使用しない場合は-1を指定</param>
         /// <returns>決定した性格</returns>
-        public static int DetermineNature(this ILcgRng rng, GameVersion gameVersion, int synchroNature)
+        public static uint DetermineNature(this ILcgRng rng, GameVersion gameVersion, int synchroNature)
         {
             int nature = -1;
             if (synchroNature >= 0) // シンクロあり
@@ -45,7 +45,7 @@ namespace Gen4RngLib.Individual
                     nature = (int)(random % 25);
                 }
             }
-            return nature;
+            return (uint)nature;
         }
 
         /// <summary>
