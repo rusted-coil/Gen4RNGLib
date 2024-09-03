@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Gen4RNGLib.Unown
+namespace Gen4RngLib.Unown
 {
     public static class UnownUtil
     {

@@ -1,6 +1,6 @@
 ﻿using Gen4RngLib.Rng;
 
-namespace Gen4RNGLib.Unown
+namespace Gen4RngLib.Unown
 {
     public static class LcgRngExtensions
     {
