@@ -19,5 +19,19 @@
             Seed = Seed * m_Multiplier + m_Adder;
             return Seed >> 16;
         }
+
+        public uint Advance(uint count)
+        {
+            uint last = Seed >> 16;
+
+            // キャッシュが利用できる場合はそれを使う
+
+            for (uint i = 0; i < count; ++i)
+            {
+                Next();
+            }
+
+            return last;
+        }
     }
 }
