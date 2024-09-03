@@ -6,12 +6,14 @@
 
         readonly uint m_Multiplier;
         readonly uint m_Adder;
+        readonly ILcgRngCache? m_Cache;
 
-        public LcgRng(uint initialSeed, uint multiplier, uint adder)
+        public LcgRng(uint initialSeed, uint multiplier, uint adder, ILcgRngCache? cache = null)
         {
             Seed = initialSeed;
             m_Multiplier = multiplier;
             m_Adder = adder;
+            m_Cache = cache;
         }
 
         public uint Next()
@@ -22,16 +24,19 @@
 
         public uint Advance(uint count)
         {
-            uint last = Seed >> 16;
-
             // キャッシュが利用できる場合はそれを使う
-
-            for (uint i = 0; i < count; ++i)
+            if (m_Cache != null)
             {
-                Next();
+                Seed = m_Cache.Advance(Seed, count);
             }
-
-            return last;
+            else
+            {
+                for (uint i = 0; i < count; ++i)
+                {
+                    Next();
+                }
+            }
+            return Seed >> 16;
         }
     }
 }
