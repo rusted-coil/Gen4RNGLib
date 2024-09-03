@@ -59,5 +59,13 @@
                 s_ReverseLcgRngCache = new Internal.LcgRngCache(0xEEB9EB65u, 0xA3561A1u);
             }
         }
+
+        /// <summary>
+        /// 初期seedを与えてMtRngを生成します。
+        /// </summary>
+        public static IMtRng CreateMtRng(uint initialSeed)
+        { 
+            return new Internal.MtRng(initialSeed);
+        }
     }
 }
